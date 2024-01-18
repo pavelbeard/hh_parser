@@ -71,13 +71,11 @@ def get_full_descriptions(vacancies):
 
 
 def main():
-    # vacancies = parse_hh(text="python")
-    # vacancies_full = get_full_descriptions(vacancies)
-    with open("vacancies.json", "r") as f1:
-        vacancies = json.load(f1)
-        with open("vacancies_full.json", "r") as f2:
-            vacancies_full = json.load(f2)
+    """main function that do a parsing a site with vacancies HeadHunter.ru"""
+    vacancies = parse_hh(text="python")
+    vacancies_full = get_full_descriptions(vacancies)
 
+    # creating files with list of vacancies and their descriptions
     pd.DataFrame(vacancies).to_excel("List of vacancies.xlsx")
     pd.DataFrame(vacancies_full).to_excel("List of vacancies description.xlsx")
 
